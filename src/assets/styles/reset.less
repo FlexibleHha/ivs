@@ -1,0 +1,85 @@
+
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background: rgba(191, 191, 191, .5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(191, 191, 191, .9);
+}
+
+::-webkit-scrollbar-track {
+  background-color: inherit;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: "Microsoft YaHei";
+  div,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  ul,
+  li,
+  dt,
+  dd {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul,
+  li {
+    list-style: none;
+  }
+
+  // 下拉框
+  .ant-select-single {
+    height: 24px;
+    line-height: 24px;
+
+    &:not(.ant-select-custom-input) .ant-select-selector {
+      height: 24px;
+      line-height: 24px;
+
+      .ant-select-selection-search-input {
+        height: 22px;
+      }
+    }
+  }
+
+  .ant-select-multiple {
+    .ant-select-selection-item {
+      height: 20px;
+      margin-top: 1px;
+      margin-bottom: 1px;
+      line-height: 20px!important;
+    }
+
+    .ant-select-selector {
+      padding: 0 4px;
+      &::after {
+        margin: 0;
+        line-height: 20px;
+      }
+
+      .ant-select-selection-search {
+        height: 20px;
+        line-height: 20px;
+      }
+    }
+  }
+}
