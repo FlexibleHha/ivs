@@ -1,5 +1,15 @@
 import { lazy } from 'react';
 
+const loginRoutes = [
+  {
+    key: 'login',
+    name: '登录',
+    path: '/login',
+    exact: true,
+    component: lazy(() => import(/* webpackChunkName: "index" */ '@/pages/login'))
+  }
+]
+
 const mainRoutes = [
   {
     key: 'index',
@@ -10,4 +20,7 @@ const mainRoutes = [
   }
 ]
 
-export default mainRoutes
+export default {
+  loginRoutes,
+  mainRoutes
+}

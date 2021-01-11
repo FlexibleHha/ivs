@@ -1,6 +1,5 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom'
 import DocumentTitle from 'react-document-title';
 import { ConfigProvider } from 'antd';
 import store from '@/redux/store/index';
@@ -23,11 +22,9 @@ const App = () => {
   return (
     <DocumentTitle>
       <Provider store={store}>
-        <BrowserRouter>
           <ConfigProvider locale={zhCN}>
-            <AppRouter navEle={<NavMenu routes={routes} />} footer={<Footer />} />
+            <AppRouter navEle={<NavMenu routes={routes.mainRoutes} />} footer={<Footer />} />
           </ConfigProvider>
-        </BrowserRouter>
       </Provider>
     </DocumentTitle>
   )

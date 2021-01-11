@@ -1,24 +1,46 @@
 import React, { Suspense } from 'react';
-// import { renderRoutes } from 'react-router-config';
-import { Router, Switch, Route, Redirect, RouteComponentProps } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import BasicLayout from '@/layouts/basicLayout.jsx';
 import LoginLayout from '@/layouts/loginLayout.jsx';
-// import routes from './routes';
+import routes from './routes';
 
 const AppRouter = (routeProps) => {
-
-  return (
-    <Suspense fallback={null}>
-      <Router>
+  const renderRoute = (routes) => {
+    return (
+      <Suspense fallback={null}>
         <Switch>
-          <Route path="/login" render={() => <LoginLayout {...routeProps} />} />
-          <Route
-            path="/"
-            render={() => <BasicLayout {...routeProps} />}
-          />
+          {
+            routes.map((route, i) => (
+              <Route
+                path={route.path}
+                exact={route.exact}
+                key={route.key}
+                component={route.component}
+              />
+            ))
+          }
         </Switch>
-      </Router>
-    </Suspense>
+      </Suspense>
+    )
+  }
+  return (
+    <Router>
+      <Switch>
+        <Route path="/login" render={() => (
+          <LoginLayout
+            {...routeProps}
+            renderRoute={() => renderRoute(routes.loginRoutes)}
+          />)} />
+        <Route
+          path="/"
+          render={() => (
+            <BasicLayout
+              {...routeProps}
+              renderRoute={() => renderRoute(routes.mainRoutes)}
+            />)}
+        />
+      </Switch>
+    </Router>
   )
 }
 

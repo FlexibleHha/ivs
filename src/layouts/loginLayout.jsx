@@ -1,8 +1,10 @@
 import React from 'react';
 
-const LoginLayout = () => {
+const LoginLayout = ({ renderRoute }) => {
   return (
-    <div></div>
+    <div className="login">
+      {renderRoute()}
+    </div>
   )
 }
 
